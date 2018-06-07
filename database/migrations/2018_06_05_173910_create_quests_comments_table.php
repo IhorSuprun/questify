@@ -15,6 +15,11 @@ class CreateQuestsCommentsTable extends Migration
     {
         Schema::create('quests_comments', function (Blueprint $table) {
             $table->increments('id');
+	    $table->text('comment');
+	    $table->integer('user_id')->unsigned();
+	    $table->integer('quest_id')->unsigned();
+	    $table->foreign('user_id')->references('id')->on('users');
+	    $table->foreign('quest_id')->references('id')->on('quests');
             $table->timestamps();
         });
     }
