@@ -20,6 +20,11 @@ class CreateQuestsTable extends Migration {
 	    $table->string('photo');
 	    $table->integer('execution_time');
 	    $table->integer('author_id')->unsigned();
+	    $table->integer('rating');
+	    $table->integer('points');
+	    $table->boolean('published');
+	    $table->integer('moderated');
+	    $table->text('moderation_info');
 	    $table->foreign('author_id')->references('id')->on('users');
 	    $table->timestamps();
 	});
