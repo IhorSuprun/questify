@@ -14,7 +14,7 @@ class CreateQuestsTable extends Migration {
     public function up() {
 	Schema::create('quests', function (Blueprint $table) {
 	    $table->increments('id');
-	    $table->string('title');
+	    $table->string('title')->unique();
 	    $table->string('short_description');
 	    $table->text('description');
 	    $table->string('photo')->nullable();
