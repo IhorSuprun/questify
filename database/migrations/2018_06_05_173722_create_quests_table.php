@@ -27,6 +27,7 @@ class CreateQuestsTable extends Migration {
 	    $table->text('moderation_info')->nullable();
 	    $table->foreign('author_id')->references('id')->on('users');
 	    $table->timestamps();
+	    $table->string('answer');
 	});
     }
 

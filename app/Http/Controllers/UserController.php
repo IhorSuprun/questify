@@ -8,15 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __construct() {
+	$this->middleware("auth");
+    }
+    private function authUserName() {
+	$auth_user = "";
+        if(Auth::user()) {
+            $auth_user = Auth::user()->name;
+        }
+	return $auth_user;
+    }
+    
     public function index() {
         return 'index';
     }
     public function profile($user_login) {
         $user = User::where('name', $user_login)->first();
-        $auth_user = "";
-        if(Auth::user()) {
-            $auth_user = Auth::user()->name;
-        }
+	$auth_user=authUserName();
         return view('user.profile', ['user' => $user, 'auth_user' => $auth_user]);
     }
     

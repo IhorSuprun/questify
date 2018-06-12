@@ -15,7 +15,4 @@ Route::get('/', 'PageController@index');
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
 Route::get('/{user_login}/profile', 'UserController@profile')->name('user.profile');
