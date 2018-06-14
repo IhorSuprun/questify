@@ -1,4 +1,4 @@
 @extends('layout.user')
 @section('content')
-Главная страница
+<h1>QUESTYFY</h1>
 @endsection

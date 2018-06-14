@@ -28,10 +28,10 @@ class User extends Authenticatable
     ];
     
     public function quest(){
-	return $this->hasOne('app/Quest');
+	return $this->hasOne('App/Quest');
     }
     
     public function users_quests(){
-	return $this->hasOne('app/Users_quest');
+	return $this->hasOne('App/Users_quest');
     }
 }

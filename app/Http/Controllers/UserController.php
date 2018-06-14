@@ -28,8 +28,13 @@ class UserController extends Controller
         return view('user.profile', ['user' => $user, 'auth_user' => $auth_user]);
     }
     
+    public function home($user_login){
+	return view('user.main');
+    }
+
+
     public function profileEdit($user_login) {
-        //Показать вид для редактирования профиля
+        
     }
     
     public function profileUpdate($user_login, Request $request) {
