@@ -1,6 +1,6 @@
 @extends('layout.user')
 @section('content')
-Главная страница пользователя {{$auth_user}}
+Главная страница пользователя {{$auth_user->name}}
 <div class="panel-body">
     <table class="table table-striped task-table">
         ТОП квестов
