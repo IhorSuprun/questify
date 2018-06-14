@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function quest(){
+	return $this->hasOne('app/Quest');
+    }
+    
+    public function users_quests(){
+	return $this->hasOne('app/Users_quest');
+    }
 }
