@@ -33,5 +33,7 @@ class User extends Authenticatable {
     public function usersquests(){
 	return $this->belongsToMany(Quest::class, 'users_quests', 'user_id', 'quest_id');
     }
-
+    public function getRouteKeyName() {
+	return 'name';
+    }
 }

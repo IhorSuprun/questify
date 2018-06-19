@@ -6,7 +6,7 @@
 <p>
     {{$user->email}}
 </p>
-@if($auth_user === $user->name)
-<a href="http://questify/{{$user->name}}/profile/edit" class="btn-info">Редактировать</a>
-@endif
+@can('check', $user)
+<a href="http://questify.local/{{$user->name}}/profile/edit" class="btn-info">Редактировать</a>
+@endcan
 @endsection
