@@ -30,7 +30,7 @@ class User extends Authenticatable {
     public function quests() {
         return $this->hasMany(Quest::class, 'author_id');
     }
-    public function processquests(){
+    public function usersquests(){
 	return $this->belongsToMany(Quest::class, 'users_quests', 'user_id', 'quest_id');
     }
 
