@@ -1,6 +1,5 @@
 @extends('layout.user')
 @section('content')
-Cтраница с выполняемыми квестами пользователя {{$user->name}}
 <div class="panel-body">
      <table class="table table-striped task-table">
         Выполняемые квесты 

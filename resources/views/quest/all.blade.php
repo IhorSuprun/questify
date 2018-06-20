@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel-body">
      <table class="table table-striped task-table">
-        Выполненные квесты 
+        Все квесты
         <thead>
             <tr>
                 <th>Квест</th>
@@ -10,8 +10,8 @@
             </tr>
         </thead>
         <tbody>
-            @if (count($quests_finished) > 0)
-            @foreach ($quests_finished as $quest)
+            @if (count($quests) > 0)
+            @foreach ($quests as $quest)
             <tr>
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
@@ -19,7 +19,7 @@
             @endforeach
             @else 
             <tr>
-                <td>У данного пользователя нет выполнненных квестов!</td>
+                <td>Нет квестов! (Как так?)</td>
             </tr>
             @endif
         </tbody>

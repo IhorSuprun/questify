@@ -1,9 +1,8 @@
 @extends('layout.user')
 @section('content')
-Cтраница с проваленными квестами пользователя {{$user->name}}
 <div class="panel-body">
      <table class="table table-striped task-table">
-        Выполняемые квесты 
+        Проваленные квесты 
         <thead>
             <tr>
                 <th>Квест</th>

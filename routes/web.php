@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/main', 'UserController@home')->name('user.main');
 
+Route::get('/quests', 'QuestController@allQuests')->name('quest.all');
+
 Route::get('/{user}', 'UserController@userAllQuests')->name('user.quests');
 Route::get('/{user}/profile', 'UserController@profile')->name('user.profile');
 Route::get('/{user}/profile/edit', 'UserController@profileEdit')->name('user.profile-edit');
@@ -24,4 +26,6 @@ Route::put('/{user}/profile/update', 'UserController@profileUpdate')->name('user
 Route::get('/{user}/in_process', 'UserController@inProcess')->name('user.questsinprocess');
 Route::get('/{user}/finished', 'UserController@finished')->name('user.questsfinished');
 Route::get('/{user}/failed', 'UserController@failed')->name('user.questsfailed');
+Route::post('/{user}/quest/create', 'QuestController@questCreate')->name('quest.create');
+
 

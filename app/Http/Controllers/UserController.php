@@ -11,129 +11,101 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller {
 
     public function __construct() {
-	$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index() {
-	return 'index';
+        return 'index';
     }
-    
+
     public function home() {
-	$auth_user = Auth::user();
-	$quests = Quest::orderBy('rating', 'desc')->take(5)->get();
-	$quests_inprocess = $auth_user->usersquests()->where('status', '=', 0)->get();
-	return view('user.main', ['user' => $auth_user,
-	    'quests' => $quests,
-	    'quests_inprocess' => $quests_inprocess
-	]);
+        $auth_user = Auth::user();
+        $quests = Quest::orderBy('rating', 'desc')->take(5)->get();
+        $quests_inprocess = $auth_user->usersquests()->where('status', '=', 0)->get();
+        return view('user.main', ['user' => $auth_user,
+            'quests' => $quests,
+            'quests_inprocess' => $quests_inprocess
+        ]);
     }
+
     public function profile(User $user) {
-	$auth_user = "";
-	if (Auth::user()) {
-	    $auth_user = Auth::user()->name;
-	}
-	return view('user.profile', ['user' => $user, 'auth_user' => $auth_user]);
+        $auth_user = "";
+        if (Auth::user()) {
+            $auth_user = Auth::user()->name;
+        }
+        return view('user.profile', ['user' => $user, 'auth_user' => $auth_user]);
     }
 
     public function userAllQuests(User $user) {
-	$user_quests = $user->quests()->get();
-	return view('user.quests', ['user' => $user,
-	    'user_quests' => $user_quests
-	]);
+        $user_quests = $user->quests()->get();
+        return view('user.quests', ['user' => $user,
+            'user_quests' => $user_quests
+        ]);
     }
 
-    /**
-     * 
-     * @param string $user_login
-     * @return view
-     * Описание: Выводит форму для изменения данных пользователя
-     */
     public function profileEdit(User $user) {
-	$auth_user = Auth::user();
-	if ($user_login !== $auth_user) {
-	    redirect('/{user_login}/profile');
-	}
-	return view('user.profile-edit', ['user' => $auth_user]);
+        if (auth()->user()->can('check', $user)) {
+            return view('user.profile-edit', ['user' => $user]);
+        } else {
+            return redirect()->route('user.profile', ['user' => $user->name]);
+        }
     }
 
-    /**
-     * 
-     * @param User $user
-     * @param Request $request
-     * @return redirect
-     * Описание: Обновляет данные о профиле пользователя в БД
-     */
     public function profileUpdate(User $user, Request $request) {
-	//TODO придумать валидацию!
-	$this->validate($request, [
-	    'email' => 'required|max:255',
-	]);
-	$this->validate($request, [
-	    'photo' => 'required|max:255',
-	]);
-	$request->user()->update([
-	    'email' => $request->email,
-	    'photo' => $request->photo,
-	]);
-	return redirect($user->name . '/profile');
-	//TODO доделать!
+        if (auth()->user()->can('check', $user)) {
+            $auth_user = Auth::user()->name;
+            $validator = Validator::make($request->all(), [
+                        'email' => 'required|string|email|max:255|unique:users',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect(route('user.profile-edit', ['user' => $auth_user]))
+                                ->withInput()
+                                ->withErrors($validator);
+            }
+            $user->email = $request->email;
+            $user->save();
+            return redirect('/' . $auth_user . '/profile');
+        } else {
+            return redirect()->route('user.profile', ['user' => $user->name]);
+        }
     }
 
-    /**
-     * 
-     * @param string $user_login
-     * @return type
-     * Выполняемые квесты
-     */
     public function inProcess(User $user) {
 //	$user = User::where('name', $user_login)->first();
-	if (auth()->user()->can('check', $user)) {
-	    $quests_inprocess = $user->usersquests()->where('status', '=', 0)->get();
-	    return view('user.quests-in-process', ['user' => $user,
-		'quests_inprocess' => $quests_inprocess,
-		    ]
-	    );
-	} else {
-	    return redirect()->route('user.main');
-	}
+        if (auth()->user()->can('check', $user)) {
+            $quests_inprocess = $user->usersquests()->where('status', '=', 0)->get();
+            return view('user.quests-in-process', ['user' => $user,
+                'quests_inprocess' => $quests_inprocess,
+                    ]
+            );
+        } else {
+            return redirect()->route('user.main');
+        }
     }
 
-    /**
-     * 
-     * @param string $user_login
-     * @return type
-     * Выполненные квесты
-     */
     public function finished(User $user) {
-	//TODO сделать адекватную проверку!!!
-	$auth_user = Auth::user();
-	if ($user_login !== $auth_user->name) {
-	    redirect('/' . $auth_user->name);
-	}
-	$quests_finished = $auth_user->usersquests()->where('status', '=', 1)->get();
-	return view('user.quests-finished', ['user' => $auth_user,
-	    'quests_finished' => $quests_finished,
-		]
-	);
+        if (auth()->user()->can('check', $user)) {
+            $quests_finished = $user->usersquests()->where('status', '=', 1)->get();
+            return view('user.quests-finished', ['user' => $user,
+                'quests_finished' => $quests_finished,
+                    ]
+            );
+        } else {
+            return redirect()->route('user.main');
+        }
     }
 
-    /**
-     * 
-     * @param string $user_login
-     * @return type
-     * Проваленные квесты
-     */
     public function failed(User $user) {
-	//TODO сделать адекватную проверку!!!
-	$auth_user = Auth::user();
-	if ($user_login !== $auth_user->name) {
-	    redirect('/' . $auth_user->name);
-	}
-	$quests_failed = $auth_user->usersquests()->where('status', '=', 2)->get();
-	return view('user.quests-failed', ['user' => $auth_user,
-	    'quests_failed' => $quests_failed,
-		]
-	);
+        if (auth()->user()->can('check', $user)) {
+            $quests_failed = $user->usersquests()->where('status', '=', 2)->get();
+            return view('user.quests-failed', ['user' => $user,
+                'quests_failed' => $quests_failed,
+                    ]
+            );
+        } else {
+            return redirect()->route('user.main');
+        }
     }
 
 }
