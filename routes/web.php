@@ -26,6 +26,11 @@ Route::put('/{user}/profile/update', 'UserController@profileUpdate')->name('user
 Route::get('/{user}/in_process', 'UserController@inProcess')->name('user.questsinprocess');
 Route::get('/{user}/finished', 'UserController@finished')->name('user.questsfinished');
 Route::get('/{user}/failed', 'UserController@failed')->name('user.questsfailed');
+
+Route::get('/{user}/{quest}', 'QuestController@quest')->name('quest.one');
+Route::get('/{user}/quest/add', 'QuestController@questAdd')->name('quest.add');
 Route::post('/{user}/quest/create', 'QuestController@questCreate')->name('quest.create');
+
+
 
 

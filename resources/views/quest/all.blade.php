@@ -1,12 +1,13 @@
 @extends('layout.user')
 @section('content')
 <div class="panel-body">
-     <table class="table table-striped task-table">
+    <table class="table table-striped task-table">
         Все квесты
         <thead>
             <tr>
                 <th>Квест</th>
                 <th>Краткое описание</th>
+                <th>Автор</th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,9 @@
             <tr>
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
+                <td>{{ $quest->author_id }}</td>
+                <!--                TODO вставить пользователя-->
+<!--                <td><a href="{{ route('quest.review', ['user'=>, 'quest'=>$quest->name]) }}">Подробнее</a></td>-->
             </tr>
             @endforeach
             @else 
