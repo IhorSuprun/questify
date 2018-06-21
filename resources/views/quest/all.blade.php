@@ -16,9 +16,7 @@
             <tr>
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
-                <td>{{ $quest->author_id }}</td>
-                <!--                TODO вставить пользователя-->
-<!--                <td><a href="{{ route('quest.review', ['user'=>, 'quest'=>$quest->name]) }}">Подробнее</a></td>-->
+                <td>{{ $quest->author->name }}</td>
             </tr>
             @endforeach
             @else 

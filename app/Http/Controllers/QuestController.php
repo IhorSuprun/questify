@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class QuestController extends Controller {
 
     public function allQuests() {
-        $quests = Quest::all();
+        $quests = Quest::all()->load('author');
         return view('quest.all', [
             'quests' => $quests,
         ]);
@@ -49,6 +49,7 @@ class QuestController extends Controller {
                 'author_id' => $user->id,
                 'photo' => $request->photo,
             ]);
+	    
             return redirect()->route('user.quests', ['user' => $user]);
         } else {
             return redirect()->route('quest.add', ['user' => $user]);

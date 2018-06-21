@@ -6,7 +6,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Создать новый квест</div>
                 <!-- Форма новой задачи -->
-                <form action="{{ route('quest.create', ['user'=>$user->name]) }}" method="POST" class="form-horizontal">
+		@include('common.problems')
+                <form action="{{ route('quest.create', ['user'=>$user->name]) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <!--Название квеста-->
                     <div class="form-group">
@@ -57,8 +58,7 @@
                     </div>
                     <!--Публикаця-->
                     <div class="form-group">
-                        <label><input type="radio" name="draft" id="quest-draft" class="form-control" checked>Черновик</label>
-                        <label><input type="radio" name="publish" id="quest-publish" class="form-control">Опубликовать</label>
+                        <label><input type="checkbox" name="draft" id="quest-draft" class="form-control">Опубликовать</label>
                     </div>
                     <!--Кнопка создания квеста-->
                     <div class="form-group">

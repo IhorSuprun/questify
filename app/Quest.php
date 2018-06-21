@@ -16,17 +16,12 @@ class Quest extends Model {
     /**
      * Получить пользователя - владельца данной задачи
      */
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function author() {
+	return $this->belongsTo(User::class);
     }
 
     public function getRouteKeyName() {
-        return 'title';
-    }
-
-    public function authorName() {
-        $author = $this->belongsTo(User::class);
-        return var_dump($author);
+	return 'title';
     }
 
 }
