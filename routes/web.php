@@ -27,6 +27,9 @@ Route::get('/{user}/in_process', 'UserController@inProcess')->name('user.questsi
 Route::get('/{user}/finished', 'UserController@finished')->name('user.questsfinished');
 Route::get('/{user}/failed', 'UserController@failed')->name('user.questsfailed');
 
+Route::post('/{user}/{quest}/start', 'UserController@startQuest')->name('user.start');
+Route::post('/{user}/{quest}/finish', 'UserController@finishQuest')->name('user.finish');
+
 Route::get('/{user}/{quest}', 'QuestController@quest')->name('quest.one');
 Route::get('/{user}/quest/add', 'QuestController@questAdd')->name('quest.add');
 Route::post('/{user}/quest/create', 'QuestController@questCreate')->name('quest.create');
