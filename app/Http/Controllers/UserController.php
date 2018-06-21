@@ -110,8 +110,14 @@ class UserController extends Controller {
 
     public function startQuest(User $user, Quest $quest) {
 	$auth_user = Auth::user();
+	$time_end = time()+($quest->execution_time*0*0);
 	UsersQuest::create([
-	    
+	    'user_id' => $auth_user->id,
+	    'quest_id' => $quest->id,
+	    'time_end' => date('H', $time_end),
+	]);
+	return redirect()->route('user.questsinprocess',[
+	    'user' => $user,
 	]);
     }
 
