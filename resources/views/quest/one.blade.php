@@ -15,18 +15,13 @@
                 <h4>Полное описание:</h4>
                 <p>{{$quest->description}}</p>
                 <h4>Дополнительные данные:</h4>
-                <p><b>Время на выполение: </b>{{$quest->execution_time}}</br>
+                <p><b>Время на выполение: </b>{{$quest->execution_time}} часа</br>
                     <b>Очки за выполение: </b>{{$quest->points}}</br>
                     <b>Рейтинг квеста: </b>{{$quest->rating}}</br>
-                    <b>Автор: </b>{{$quest->author_id}}</br>
+                    <b>Автор: </b>{{$quest->author->name}}</br>
                 </p>
                 <div>
-                    
-                    <!--                    TODO сделать проверки
-                    - является ли 
-                    
-                    
-                    -->
+   
                 </div>
             </div>
         </div>

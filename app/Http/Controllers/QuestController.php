@@ -61,4 +61,19 @@ class QuestController extends Controller {
         }
     }
 
+    public function editQuest(User $user, Quest $quest) {
+        return view('quest.edit', [
+            'quest' => $quest,
+            'user' => $user,
+            ]);
+    }
+
+    public function updateQuest() {
+        return 'Реализовать метод update';
+    }
+
+    public function deleteQuest() {
+        return 'Реализовать метод delete';
+    }
+
 }

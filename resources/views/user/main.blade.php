@@ -7,6 +7,8 @@
             <tr>
                 <th>Квест</th>
                 <th>Краткое описание</th>
+                <th>Автор</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +16,8 @@
             <tr>
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
+                <td>{{ $quest->author->name }}</td>
+                <td></td>
             </tr>
             @endforeach
         </tbody>
@@ -25,13 +29,14 @@
             <tr>
                 <th>Квест</th>
                 <th>Дата окончания</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
             @if (count($quests_inprocess) > 0)
             @foreach ($quests_inprocess as $quest)
             <tr>
-                <td>{{ $quest->id }}</td>
+                <td>{{ $quest->title }}</td>
                 <td>{{ $quest->time_end }}</td>
             </tr>
             @endforeach

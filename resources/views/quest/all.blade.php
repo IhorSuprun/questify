@@ -8,6 +8,7 @@
                 <th>Квест</th>
                 <th>Краткое описание</th>
                 <th>Автор</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
                 <td>{{ $quest->author->name }}</td>
+                <td><a href="{{ route('quest.one', ['user'=>$quest->author->name, 'quest'=>$quest->title]) }}">Подробнее</a></td>
             </tr>
             @endforeach
             @else 

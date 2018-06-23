@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-6 col-lg-6 hidden-xs">
 					<div class="logo">
-						<img src="img/logo.png" alt="fudi" />
+						<img src="img/logo_2.png" alt="fudi" />
 					</div>
 				</div><!-- end col -->
 				<div class="col-sm-6 col-md-6 col-lg-6">
@@ -112,7 +112,7 @@
 	</section>
 	<!-- end content -->
 	
-	<!-- content -->
+<!--	 content 
 	<section class="page-color" id="app">
 		<div class="container">
 			<div class="row">
@@ -121,8 +121,8 @@
 						<div class="img-app">
 							<img src="img/iphone.png" alt="fudi" />
 						</div>
-					</div><!-- end build -->
-				</div><!-- end col -->
+					</div> end build 
+				</div> end col 
 				<div class="col-md-6 col-lg-6 animated hidding delay2" data-animated="bounceInUp">
 					<div class="build fudi-app">
 						<h3>INTRODUCING THE FUDI APP</h3>
@@ -133,12 +133,12 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						<p>Suspendisse aliquet felis consectetur libero congue, sed pulvinar diam malesuada. Duis vehicula a nibh id hendrerit. Donec sit amet ultrices ante, a mattis massa.</p>
 						<a href="#"><img src="img/appstore.png" alt="fudi" /></a>
 						<a href="#"><img src="img/googleplay.jpg" alt="fudi" /></a>
-					</div><!-- end build -->
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
+					</div> end build 
+				</div> end col 
+			</div> end row 
+		</div> end container 
 	</section>
-	<!-- end content -->
+	 end content -->
 	
 	<!-- content -->
 	<section class="page-img" id="testimonial">
@@ -152,23 +152,23 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 									<div class="avatar">
 										<img src="img/avatar.jpg" alt="fudi" class="img-circle"/>
 									</div>
-									<p>"I am so happy because I found this recipe, and it just made my life easier. Thanks  so much for sharing"</p>
-									<span>- Michael Dawson, San Francisco, CA -</span>
+									<p>"Квесты таки крутые. И шо, деньги платить за них будут?"</p>
+									<span>- Мойша Рабинович, Днепр -</span>
 								</li>
 								<li>
 									<div class="avatar">
 										<img src="img/avatar.jpg" alt="fudi" class="img-circle"/>
 									</div>
-									<p>"I am so happy because I found this recipe, and it just made my life easier. Thanks  so much for sharing"</p>
-									<span>- Michael Dawson, San Francisco, CA -</span>
+									<p>"Реальный сервис, пацаны ваще ребята"</p>
+									<span>- Миха Белый, Днепр, АНД -</span>
 								</li>
-								<li>
+<!--								<li>
 									<div class="avatar">
 										<img src="img/avatar.jpg" alt="fudi" class="img-circle"/>
 									</div>
 									<p>"I am so happy because I found this recipe, and it just made my life easier. Thanks  so much for sharing"</p>
 									<span>- Michael Dawson, San Francisco, CA -</span>
-								</li>
+								</li>-->
 							</ul>
 						</div>
 					</div>
@@ -178,7 +178,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 	</section>
 	<!-- end content -->
 	
-	<!-- content -->
+<!--	 content 
 	<section class="page" id="recipes">
 		<div class="container-fluid">		
 			<div class="row">
@@ -186,9 +186,9 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 					<div class="build title-page text-center">
 						<h2>BROWSE BY CUISINES</h2>
 						<div class="title-line"></div>
-					</div><!-- end col -->
-				</div><!-- end col -->
-			</div><!-- end row -->		
+					</div> end col 
+				</div> end col 
+			</div> end row 		
 			<div class="row">
 			<div class="metro">
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay1 mywork" data-animated="bounceInUp">
@@ -206,7 +206,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay2 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -222,7 +222,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay3 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -238,7 +238,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay4 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -254,7 +254,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay5 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -270,7 +270,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 							</div>
 						</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay6 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -286,7 +286,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay7 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -302,7 +302,7 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					
 					</div>
-				</div><!-- end col -->
+				</div> end col 
 				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 hidding animated delay8 mywork" data-animated="bounceInUp">
 					
 					<div class="folio">
@@ -318,11 +318,11 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 						</div>
 					</div>
 					
-				</div><!-- end col -->
+				</div> end col 
 				
 				
-			</div><!-- end metro -->
-			</div><!-- end row -->
+			</div> end metro 
+			</div> end row 
 			<div class="row">
 				<div class="col-lg-offset-2 col-lg-10">
 					<div class="row">
@@ -330,38 +330,38 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 							<div class="build fudi-count text-center">
 								<h3>23,567</h3>
 								<p>Recipes Available</p>
-							</div><!-- end build -->
-						</div><!-- end col -->
+							</div> end build 
+						</div> end col 
 						<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 animated hidding delay2" data-animated="bounceInUp">
 							<div class="build fudi-count text-center">
 								<h3>431,726</h3>
 								<p>Active Users</p>
-							</div><!-- end build -->
-						</div><!-- end col -->
+							</div> end build 
+						</div> end col 
 						<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 animated hidding delay2" data-animated="bounceInUp">
 							<div class="build fudi-count text-center">
 								<h3>892,726</h3>
 								<p>Positive Reviewes</p>
-							</div><!-- end build -->
-						</div><!-- end col -->
+							</div> end build 
+						</div> end col 
 						<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 animated hidding delay3" data-animated="bounceInUp">
 							<div class="build fudi-count text-center">
 								<h3>56,581</h3>
 								<p>Photos & Video</p>
-							</div><!-- end build -->
-						</div><!-- end col -->
+							</div> end build 
+						</div> end col 
 						<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 animated hidding delay4" data-animated="bounceInUp">
 							<div class="build fudi-count text-center">
 								<h3>3,182</h3>
 								<p>Spices and Herbs</p>
-							</div><!-- end build -->
-						</div><!-- end col -->
-					</div><!-- end row -->
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
+							</div> end build 
+						</div> end col 
+					</div> end row 
+				</div> end col 
+			</div> end row 
+		</div> end container 
 	</section>
-	<!-- end content -->
+	 end content -->
 	
 	<footer>
 		<div class="container">
@@ -369,12 +369,12 @@ libero dui, eleifend eu nisi id, egestas fringilla odio. In varius quam a massa 
 			<div class="row">
 				<div class="col-lg-6 ">
 					<div class="build cpright">
-						<p>&copy;2014 Fudi All Rights Reserved</p>
+						<p>&copy;2018 BST All Rights Reserved</p>
 					</div><!-- end build -->
 				</div><!-- end col -->
 				<div class="col-lg-6 ">
 					<div class="build desBy text-right">
-						<p>Design by: www.bekades.com | Code by: OmahPSD.com </p>
+						<p>Pirate cope by: BST</p>
 					</div><!-- end build -->
 				</div><!-- end col -->
 			</div><!-- end row -->
