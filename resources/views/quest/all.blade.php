@@ -18,7 +18,13 @@
                 <td>{{ $quest->title }}</td>
                 <td>{{ $quest->short_description }}</td>
                 <td>{{ $quest->author->name }}</td>
-                <td><a href="{{ route('quest.one', ['user'=>$quest->author->name, 'quest'=>$quest->title]) }}">Подробнее</a></td>
+                <td>
+                    <a href="{{ route('quest.one', ['user'=>$quest->author->name, 'quest'=>$quest->title]) }}" style="color:white">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-search" >Подробнее</i>
+                        </button>
+                    </a></td>
+                </td>
             </tr>
             @endforeach
             @else 

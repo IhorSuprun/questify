@@ -23,5 +23,4 @@ class Quest extends Model {
     public function getRouteKeyName() {
 	return 'title';
     }
-
 }

@@ -20,7 +20,12 @@
             </li>
 
             <li class="nav-item">
+<!--                Проверка на возможность создания квестов данным пользователем-->
+                @if($user->author === 1)
                 <a class="nav-link" href="{{ route('quest.add', ['user'=>$user->name]) }}">+ Создать квест</a>
+                @else
+                <a class="nav-link disabled" href="">+ Создать квест</a>
+                @endif
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

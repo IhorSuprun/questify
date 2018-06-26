@@ -8,6 +8,8 @@ use App\Quest;
 use App\UsersQuest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+use DB;
 
 class UserController extends Controller {
 
@@ -96,7 +98,7 @@ class UserController extends Controller {
     public function inProcess(User $user) {
 //	$user = User::where('name', $user_login)->first();
         if (auth()->user()->can('check', $user)) {
-            $quests_inprocess = $user->usersquests()->where('status', '=', 0)->get();
+            $quests_inprocess = $user->usersquests()->where('status', '=', 0)->withPivot('time_end')->get();
             return view('user.quests-in-process', ['user' => $user,
                 'quests_inprocess' => $quests_inprocess,
                     ]
@@ -131,17 +133,65 @@ class UserController extends Controller {
     }
 
     public function startQuest(User $user, Quest $quest) {
-//        $auth_user = Auth::user();
-//        $time_end = time() + ($quest->execution_time * 0 * 0);
-//        UsersQuest::create([
-//            'user_id' => $auth_user->id,
-//            'quest_id' => $quest->id,
-//            'time_end' => date('H', $time_end),
-//        ]);
-//        return redirect()->route('user.questsinprocess', [
-//                    'user' => $user,
-//        ]);
-        return 'test';
+        if (Auth::user() === $user->name) {
+            return redirect()->route('quests.all');
+        } else {
+            $auth_user = Auth::user();
+            date_default_timezone_set('Europe/Kiev');
+            $time_end = date('Y:m:d H:i:s', Carbon::now()->addHours($quest->execution_time)->timestamp);
+//        return dd($time_end);
+            UsersQuest::create([
+                'user_id' => $auth_user->id,
+                'quest_id' => $quest->id,
+                'time_end' => $time_end,
+            ]);
+            return redirect()->route('user.questsinprocess', [
+                        'user' => $user,
+            ]);
+        }
+    }
+
+    public function finishQuest(User $user, Quest $quest, Request $request) {
+        if (Auth::user() === $user->name) {
+            return redirect()->route('user.questsinprocess', ['user' => Auth::user(),
+            ]);
+        } else {
+            $user_quest = UsersQuest::where('quest_id', '=', $quest->id)->where('status', '=', 0)->where('user_id', '=', Auth::user()->id)->first();
+            date_default_timezone_set('Europe/Kiev');
+            $current_time = date('Y:m:d H:i:s', Carbon::now()->timestamp);
+            if (strtotime($current_time) > strtotime($user_quest->time_end)) {
+                $result = 'timeend';
+                $user_quest->status = 2;
+                $user_quest->save();
+            } else {
+                $validator = Validator::make($request->all(), [
+                            'answer' => 'required|string',
+                ]);
+
+                if ($validator->fails()) {
+                    return redirect(route('quest.one', ['user' => $user,
+                                        'quest' => $quest])
+                                    )
+                                    ->withInput()
+                                    ->withErrors($validator);
+                }
+
+                if ($quest->answer === $request->answer) {
+
+                    $result = 'success';
+                    $user_quest->status = 1;
+                    $user_quest->time_end = $current_time;
+                    $user_quest->save();
+                } else {
+                    $result = 'fail';
+                    $user_quest->status = 2;
+                    $user_quest->save();
+                }
+                return view('user.quests-complete', [
+                    'result' => $result,
+                ]);
+            }
+        }
     }
 
 }

@@ -36,4 +36,7 @@ class User extends Authenticatable {
     public function getRouteKeyName() {
 	return 'name';
     }
+    public function userq() {
+        return $this->belongsToMany('App\Quest')->withPivot('time_start', 'time_end');
+    }
 }
